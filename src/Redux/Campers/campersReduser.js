@@ -7,6 +7,9 @@ const campers = {
   isLoading: false,
   error: null,
   pagination: { page: 1, limit: 4 },
+  location: '',
+  equipmentFilters: [],
+  vehicleType: '',
 };
 
 const campersSlice = createSlice({
@@ -15,6 +18,20 @@ const campersSlice = createSlice({
   reducers: {
     setPagination(state, action) {
       state.pagination = action.payload;
+    },
+    setLocation(state, action) {
+      state.location = action.payload;
+    },
+    setVehicleType(state, action) {
+      state.vehicleType = action.payload;
+    },
+    addFilter(state, action) {
+      state.equipmentFilters.push(action.payload);
+    },
+    removeFilter(state, action) {
+      state.equipmentFilters = state.equipmentFilters.filter(
+        filter => filter !== action.payload
+      );
     },
   },
   extraReducers: builder => {
@@ -30,6 +47,13 @@ const campersSlice = createSlice({
   },
 });
 
-export const { setFilter, setPagination } = campersSlice.actions;
+export const {
+  setFilter,
+  setPagination,
+  setLocation,
+  setVehicleType,
+  addFilter,
+  removeFilter,
+} = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;
