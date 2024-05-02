@@ -1,32 +1,28 @@
-import { setCurrentPage } from '../../Redux/actions';
-import { selectCampers, selectCurrentPage } from '../../Redux/selectors';
+import { setPagination } from '../../Redux/Campers/campersReduser';
+import { selectCampers, selectPagination } from '../../Redux/selectors';
 import { fetchAdverts } from 'Services/api';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Catalog() {
   const adverts = useSelector(selectCampers);
-  const currentPage = useSelector(selectCurrentPage);
+  const pagination = useSelector(selectPagination);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAdverts());
   }, [dispatch]);
 
-  const itemsPerPage = 4;
-  const totalAdverts = adverts.length;
-
   const handleLoadMore = () => {
-    const nextPage = currentPage + 1;
-    if (nextPage * itemsPerPage <= totalAdverts) {
-      dispatch(setCurrentPage(nextPage));
-    }
+    const nextPage = pagination.page + 1;
+    dispatch(setPagination({ ...pagination, page: nextPage })); // Оновлення всього об'єкта пагінації з новою сторінкою
+    dispatch(fetchAdverts());
   };
 
   return (
     <div>
       <ul>
-        {adverts.slice(0, currentPage * itemsPerPage).map(advert => (
+        {adverts.slice(0, pagination.page * pagination.limit).map(advert => (
           <li key={advert._id}>
             <img src={advert.gallery[0]} alt="camper" />
             <h2>{advert.name}</h2>
@@ -34,8 +30,8 @@ function Catalog() {
           </li>
         ))}
       </ul>
-      {currentPage * itemsPerPage < totalAdverts && (
-        <button onClick={handleLoadMore}>Load More</button>
+      {adverts.length < pagination.page * pagination.limit ? null : (
+        <button onClick={handleLoadMore}>Load more</button>
       )}
     </div>
   );

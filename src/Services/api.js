@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const URL = 'https://66323d0dc51e14d69563cf9d.mockapi.io/advert';
+const URL = 'https://66323d0dc51e14d69563cf9d.mockapi.io/advert';
 
 export const fetchAdverts = createAsyncThunk(
   'adverts/fetchAdverts',

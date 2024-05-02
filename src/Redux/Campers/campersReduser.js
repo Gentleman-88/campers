@@ -6,20 +6,22 @@ const campers = {
   favorites: [],
   isLoading: false,
   error: null,
-  currentPage: 1,
-  itemsPerPage: 4,
-};
-
-const forPending = state => {
-  state.isLoading = true;
+  pagination: { page: 1, limit: 4 },
 };
 
 const campersSlice = createSlice({
   name: 'campers',
   initialState: campers,
+  reducers: {
+    setPagination(state, action) {
+      state.pagination = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
-      .addCase(fetchAdverts.pending, forPending)
+      .addCase(fetchAdverts.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(fetchAdverts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -27,6 +29,7 @@ const campersSlice = createSlice({
       });
   },
 });
-export const { setFilter } = campersSlice.actions;
+
+export const { setFilter, setPagination } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;
