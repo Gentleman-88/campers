@@ -3,14 +3,126 @@
   padding: 0 50px;
 }
 
+.location {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(16, 24, 40, 0.6);
+  margin-bottom: 10px;
+}
+
+.location_input {
+  border-radius: 10px;
+  border-style: none;
+  padding-left: 18px;
+  height: 50px;
+  width: 360px;
+  background-color: #f7f7f7;
+  color: #101828;
+}
+
+.filters {
+  font-weight: 500;
+  font-size: 16px;
+  color: #475467;
+}
+
+.data_check_svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  gap: 5px;
+  width: 112px;
+  height: 95px;
+}
+
+.filter_icon {
+  width: 33px;
+  height: 33px;
+  margin: 0;
+}
+
+.filter_type {
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  color: #101828;
+  margin: 0;
+}
+
+.input:checked + .filter_check > .data_check_svg {
+  border-color: #e44848;
+}
+
+.equipment {
+  font-weight: 600;
+  font-size: 20px;
+  color: #101828;
+  margin: 0 0 40px 0;
+}
+
 .select_filters {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 9px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.select_filters::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(16, 24, 40, 0.1);
+  margin-top: -20px;
 }
 
 .camper_types {
   display: flex;
   gap: 8px;
+}
+
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.search_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 200px;
+  width: 173px;
+  height: 56px;
+  border-style: none;
+  background-color: #e44848;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.search_btn:hover,
+.search_btn:focus {
+  background-color: #d84343;
+}
+
+.icon_automatic {
+  stroke: #101828;
 }

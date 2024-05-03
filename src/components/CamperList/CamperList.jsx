@@ -1,4 +1,10 @@
-import { selectCampers, selectPagination } from '../../Redux/selectors';
+import {
+  selectCampers,
+  selectFilters,
+  selectLocation,
+  selectPagination,
+  selectvehicleType,
+} from '../../Redux/selectors';
 import { fetchAdverts } from 'Services/api';
 import LoadMoreBtn from '../../components/Buttons/LoadMoreBtn';
 import React, { useEffect } from 'react';
@@ -7,11 +13,14 @@ import { useDispatch, useSelector } from 'react-redux';
 function CamperList() {
   const adverts = useSelector(selectCampers);
   const pagination = useSelector(selectPagination);
+  const location = useSelector(selectLocation);
+  const equipmentFilters = useSelector(selectFilters);
+  const vehicleType = useSelector(selectvehicleType);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAdverts());
-  }, [dispatch]);
+    dispatch(fetchAdverts({ location, equipmentFilters, vehicleType }));
+  }, [dispatch, location, equipmentFilters, vehicleType]);
 
   return (
     <div>
