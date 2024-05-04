@@ -36,6 +36,11 @@
   gap: 5px;
   width: 112px;
   height: 95px;
+  cursor: pointer;
+}
+
+.data_check_svg:hover {
+  border-color: #e44848;
 }
 
 .filter_icon {
@@ -124,5 +129,5 @@
 }
 
 .icon_automatic {
-  stroke: #101828;
+  fill: #101828;
 }

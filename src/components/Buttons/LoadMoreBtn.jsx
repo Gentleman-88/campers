@@ -2,6 +2,7 @@ import { setPagination } from '../../Redux/Campers/campersReduser';
 import { selectCampers, selectPagination } from '../../Redux/selectors';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import s from './LoadMoreBtn.module.css';
 
 function LoadMoreBtn() {
   const adverts = useSelector(selectCampers);
@@ -18,7 +19,9 @@ function LoadMoreBtn() {
       {adverts.length < pagination.page * pagination.limit ? (
         <p>No more campers</p>
       ) : (
-        <button onClick={handleLoadMore}>Load more</button>
+        <button onClick={handleLoadMore} className={s.btn}>
+          Load more
+        </button>
       )}
     </>
   );

@@ -9,6 +9,9 @@ import { fetchAdverts } from 'Services/api';
 import LoadMoreBtn from '../../components/Buttons/LoadMoreBtn';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaStar, FaRegHeart } from 'react-icons/fa';
+import { IoLocationOutline, IoPeopleOutline } from 'react-icons/io5';
+import s from './CamperList.module.css';
 
 function CamperList() {
   const adverts = useSelector(selectCampers);
@@ -23,14 +26,75 @@ function CamperList() {
   }, [dispatch, location, equipmentFilters, vehicleType]);
 
   return (
-    <div>
-      <ul>
+    <div className={s.container}>
+      <ul className={s.list}>
         {adverts.slice(0, pagination.page * pagination.limit).map(advert => (
-          <li key={advert._id}>
-            <img src={advert.gallery[0]} alt="camper" />
-            <h2>{advert.name}</h2>
-            <p>Price: {advert.price}</p>
-          </li>
+          <div key={advert._id} className={s.card}>
+            <img src={advert.gallery[0]} alt="camper" className={s.image} />
+            <div className={s.infoBox}>
+              <div>
+                <div className={s.header}>
+                  <h3 className={s.camperName}>{advert.name.slice(0, 23)}</h3>
+                  <div className={s.priceWrapper}>
+                    <p className={s.price}>{advert.price}</p>
+                    <button type="button" className={s.notFavoriteBtn}>
+                      <FaRegHeart />
+                    </button>
+                  </div>
+                </div>
+                <div className={s.ratingWrap}>
+                  <div className={s.rating}>
+                    <FaStar className={s.starIcon} />
+                    <p className={s.reviews}>
+                      {advert.rating}({advert.reviews.length} Reviews)
+                    </p>
+                  </div>
+                  <div className={s.locationWrap}>
+                    <IoLocationOutline />
+                    <p className={s.location}>{advert.location}</p>
+                  </div>
+                </div>
+              </div>
+              <p className={s.description}>
+                {advert.description.slice(0, 62)}...
+              </p>
+              <ul className={s.options}>
+                <li className={s.optionItem}>
+                  {' '}
+                  <IoPeopleOutline className={s.optionIcon} />{' '}
+                  <p className={s.optionDesc}>{advert.adults} adults</p>
+                </li>
+                <li className={s.optionItem}>
+                  {' '}
+                  <IoPeopleOutline className={s.optionIcon} />{' '}
+                  <p className={s.optionDesc}>{advert.transmission}</p>
+                </li>
+                <li className={s.optionItem}>
+                  {' '}
+                  <IoPeopleOutline className={s.optionIcon} />{' '}
+                  <p className={s.optionDesc}>{advert.engine}</p>
+                </li>
+                <li className={s.optionItem}>
+                  {' '}
+                  <IoPeopleOutline className={s.optionIcon} />{' '}
+                  <p className={s.optionDesc}>kitchen</p>
+                </li>
+                <li className={s.optionItem}>
+                  {' '}
+                  <IoPeopleOutline className={s.optionIcon} />{' '}
+                  <p className={s.optionDesc}>{advert.details.beds} beds</p>
+                </li>
+                <li className={s.optionItem}>
+                  {' '}
+                  <IoPeopleOutline className={s.optionIcon} />{' '}
+                  <p className={s.optionDesc}>AC</p>
+                </li>
+              </ul>
+              <button type="button" className={s.showMoreBtn}>
+                Show more
+              </button>
+            </div>
+          </div>
         ))}
       </ul>
       <LoadMoreBtn />
