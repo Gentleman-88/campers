@@ -29,8 +29,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 902px;
 }
 
@@ -72,14 +72,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .reviewLocation {
   display: flex;
   flex-direction: row;
   gap: 16px;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   line-height: 1.5;
   text-decoration-skip-ink: none;

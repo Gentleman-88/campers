@@ -11,8 +11,8 @@
   display: flex;
   flex-direction: column;
   gap: 44px;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .options {
@@ -29,8 +29,8 @@
   width: 393px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .title {
