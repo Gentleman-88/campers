@@ -1,10 +1,30 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import s from './Modal.module.css';
 import { IoClose, IoLocationOutline } from 'react-icons/io5';
+import { FaStar } from 'react-icons/fa';
 import Tabs from 'components/Tabs/Tabs';
+
 const Modal = ({ isOpen, onClose, advert }) => {
   const { name, rating, reviews, location, price, gallery, description } =
     advert;
+
+  useEffect(() => {
+    const handleKeyPress = e => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyPress);
+    } else {
+      document.removeEventListener('keydown', handleKeyPress);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [isOpen, onClose]);
 
   const onWrapperClick = e => {
     if (e.target.classList.contains(s.overlay)) {
@@ -12,22 +32,11 @@ const Modal = ({ isOpen, onClose, advert }) => {
     }
   };
 
-  useEffect(() => {
-    const onKeyDown = e => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.addEventListener('keydown', onKeyDown);
-    } else {
-      document.removeEventListener('keydown', onKeyDown);
-    }
-    return () => {
-      document.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onClose]);
-
   return (
-    <div className={s.overlay} onClick={onWrapperClick}>
+    <div
+      className={`${s.overlay} ${isOpen ? s.show : ''}`}
+      onClick={onWrapperClick}
+    >
       <div className={s.modal}>
         <div className={s.header}>
           <div className={s.modalHeader}>
@@ -39,7 +48,7 @@ const Modal = ({ isOpen, onClose, advert }) => {
           <div className={s.infoBox}>
             <div className={s.reviewLocation}>
               <div className={s.reviewWrap}>
-                ⭐
+                <FaStar className={s.icon} />
                 <p className={s.review}>
                   {rating}({reviews.length} Reviews)
                 </p>
