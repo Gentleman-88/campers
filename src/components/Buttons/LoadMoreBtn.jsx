@@ -17,7 +17,7 @@ function LoadMoreBtn() {
   return (
     <>
       {adverts.length < pagination.page * pagination.limit ? (
-        <p>No more campers</p>
+        <p className={s.noMore}>No more campers</p>
       ) : (
         <button onClick={handleLoadMore} className={s.btn}>
           Load more

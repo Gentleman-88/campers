@@ -1,5 +1,24 @@
 .header {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
   gap: 20px;
+  border-bottom: 4px solid #e44848;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #101828;
+}
+
+.navBtn:hover,
+.navBtn:focus {
+  color: #e44848;
 }

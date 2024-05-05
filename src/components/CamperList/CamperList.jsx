@@ -32,7 +32,6 @@ function CamperList() {
           <CamperCard key={advert._id} advert={advert} />
         ))}
       </ul>
-
       <LoadMoreBtn />
     </div>
   );

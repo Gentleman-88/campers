@@ -74,7 +74,7 @@ function CamperCard({ advert }) {
             <div className={s.header}>
               <h3 className={s.camperName}>{name.slice(0, 23)}</h3>
               <div className={s.priceWrapper}>
-                <p className={s.price}>{price}</p>
+                <p className={s.price}>€{price}</p>
                 <button
                   type="button"
                   className={isFavorite ? s.favoriteBtn : s.notFavoriteBtn}
