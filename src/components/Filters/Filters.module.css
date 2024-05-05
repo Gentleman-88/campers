@@ -77,6 +77,11 @@
   margin-bottom: 40px;
 }
 
+.icon {
+  width: 26px;
+  height: 27px;
+}
+
 .select_filters::before {
   content: '';
   position: absolute;

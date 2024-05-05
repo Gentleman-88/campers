@@ -1,5 +1,9 @@
 import React from 'react';
 import s from './Filters.module.css';
+import { TbAutomaticGearbox, TbToolsKitchen2, TbCamper } from 'react-icons/tb';
+import { FiWind } from 'react-icons/fi';
+import { PiTelevision, PiVanLight } from 'react-icons/pi';
+import { LuShowerHead } from 'react-icons/lu';
 
 function Filters() {
   return (
@@ -18,6 +22,7 @@ function Filters() {
           />
           <label htmlFor="ac" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <FiWind className={s.icon} />
               <p className={s.filter_type}>AC</p>
             </span>
           </label>
@@ -29,6 +34,7 @@ function Filters() {
           />
           <label htmlFor="Automatic" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <TbAutomaticGearbox className={s.icon} />
               <p className={s.filter_type}>Automatic</p>
             </span>
           </label>
@@ -40,6 +46,7 @@ function Filters() {
           />
           <label htmlFor="Kitchen" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <TbToolsKitchen2 className={s.icon} />
               <p className={s.filter_type}>Kitchen</p>
             </span>
           </label>
@@ -51,6 +58,7 @@ function Filters() {
           />
           <label htmlFor="TV" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <PiTelevision className={s.icon} />
               <p className={s.filter_type}>TV</p>
             </span>
           </label>
@@ -62,6 +70,7 @@ function Filters() {
           />
           <label htmlFor="Shower" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <LuShowerHead className={s.icon} />
               <p className={s.filter_type}>Shower/WC</p>
             </span>
           </label>
@@ -77,6 +86,7 @@ function Filters() {
           />
           <label htmlFor="Van" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <PiVanLight className={s.icon} />
               <p className={s.filter_type}>Van</p>
             </span>
           </label>
@@ -89,6 +99,7 @@ function Filters() {
           />
           <label htmlFor="Fully" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <TbCamper className={s.icon} />
               <p className={s.filter_type}>Fully Integrated</p>
             </span>
           </label>
@@ -101,6 +112,7 @@ function Filters() {
           />
           <label htmlFor="Alcove" className={s.filter_check}>
             <span className={s.data_check_svg}>
+              <TbCamper className={s.icon} />
               <p className={s.filter_type}>Alcove</p>
             </span>
           </label>
