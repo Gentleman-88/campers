@@ -9,20 +9,16 @@ const Modal = ({ isOpen, onClose, advert }) => {
     advert;
 
   useEffect(() => {
-    const handleKeyPress = e => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+    const onKeyDown = e => {
+      if (e.key === 'Escape') onClose();
     };
-
     if (isOpen) {
-      document.addEventListener('keydown', handleKeyPress);
+      document.addEventListener('keydown', onKeyDown);
     } else {
-      document.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener('keydown', onKeyDown);
     }
-
     return () => {
-      document.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onClose]);
 
