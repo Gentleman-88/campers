@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CamperCard from '../../components/CamperCard/CamperCard';
 import s from './Favorite.module.css';
 
 const Favorites = () => {
-  const favoritesFromStorage =
-    JSON.parse(localStorage.getItem('favorites')) || [];
-  const [favoriteCampers, setFavoriteCampers] = useState(favoritesFromStorage);
+  const [favoriteCampers, setFavoriteCampers] = useState([]);
 
+  useEffect(() => {
+    const favoritesFromStorage =
+      JSON.parse(localStorage.getItem('favorites')) || [];
+    setFavoriteCampers(favoritesFromStorage);
+  }, []);
   return (
     <div className={s.container}>
       {favoriteCampers.length === 0 ? (
