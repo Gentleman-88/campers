@@ -14,9 +14,9 @@ function Filters() {
             id="ac"
             type="checkbox"
             value="mechanic"
-            class={`${s.visually_hidden} ${s.input}`}
+            className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="ac" class={s.filter_check}>
+          <label htmlFor="ac" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>AC</p>
             </span>
@@ -25,9 +25,9 @@ function Filters() {
             id="Automatic"
             type="checkbox"
             value="mechanic"
-            class={`${s.visually_hidden} ${s.input}`}
+            className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="Automatic" class={s.filter_check}>
+          <label htmlFor="Automatic" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>Automatic</p>
             </span>
@@ -36,9 +36,9 @@ function Filters() {
             id="Kitchen"
             type="checkbox"
             value="mechanic"
-            class={`${s.visually_hidden} ${s.input}`}
+            className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="Kitchen" class={s.filter_check}>
+          <label htmlFor="Kitchen" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>Kitchen</p>
             </span>
@@ -47,9 +47,9 @@ function Filters() {
             id="TV"
             type="checkbox"
             value="mechanic"
-            class={`${s.visually_hidden} ${s.input}`}
+            className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="TV" class={s.filter_check}>
+          <label htmlFor="TV" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>TV</p>
             </span>
@@ -58,9 +58,9 @@ function Filters() {
             id="Shower"
             type="checkbox"
             value="mechanic"
-            class={`${s.visually_hidden} ${s.input}`}
+            className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="Shower" class={s.filter_check}>
+          <label htmlFor="Shower" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>Shower/WC</p>
             </span>
@@ -75,7 +75,7 @@ function Filters() {
             value="Van"
             className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="Van" className={s.filter_check}>
+          <label htmlFor="Van" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>Van</p>
             </span>
@@ -87,7 +87,7 @@ function Filters() {
             value="Fully Integrated"
             className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="Fully" className={s.filter_check}>
+          <label htmlFor="Fully" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>Fully Integrated</p>
             </span>
@@ -99,7 +99,7 @@ function Filters() {
             value="Alcove"
             className={`${s.visually_hidden} ${s.input}`}
           />
-          <label for="Alcove" className={s.filter_check}>
+          <label htmlFor="Alcove" className={s.filter_check}>
             <span className={s.data_check_svg}>
               <p className={s.filter_type}>Alcove</p>
             </span>

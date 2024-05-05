@@ -3,7 +3,6 @@ import { fetchAdverts } from '../../Services/api.js';
 
 const campers = {
   campers: [],
-  favorites: [],
   isLoading: false,
   error: null,
   pagination: { page: 1, limit: 4 },

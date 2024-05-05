@@ -45,8 +45,15 @@ function CamperCard({ advert }) {
         : favorites.filter(favAdvert => favAdvert._id !== id);
 
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    } else {
+      if (!isFavorite) {
+        const updatedFavorites = favorites.filter(
+          favAdvert => favAdvert._id !== id
+        );
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+      }
     }
-  }, [isFavorite, id, advert]);
+  }, [isFavorite]);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -73,7 +80,11 @@ function CamperCard({ advert }) {
                   className={isFavorite ? s.favoriteBtn : s.notFavoriteBtn}
                   onClick={toggleFavorite}
                 >
-                  {isFavorite ? <FaRegHeart /> : <FaHeart />}
+                  {isFavorite ? (
+                    <FaHeart className={s.favorite} />
+                  ) : (
+                    <FaRegHeart className={s.notFavorite} />
+                  )}
                 </button>
               </div>
             </div>

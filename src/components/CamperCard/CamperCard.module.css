@@ -59,9 +59,27 @@
   justify-content: center;
   background-color: transparent;
   border: none;
+  cursor: pointer;
+}
+
+.favoriteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.notFavorite {
   width: 25px;
   height: 22px;
-  cursor: pointer;
+}
+
+.favorite {
+  width: 25px;
+  height: 22px;
+  fill: #e44848;
 }
 
 .ratingWrap {
