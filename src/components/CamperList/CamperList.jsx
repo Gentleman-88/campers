@@ -7,11 +7,12 @@ import {
 } from '../../Redux/selectors';
 import { fetchAdverts } from 'Services/api';
 import LoadMoreBtn from '../../components/Buttons/LoadMoreBtn';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaStar, FaRegHeart } from 'react-icons/fa';
 import { IoLocationOutline, IoPeopleOutline } from 'react-icons/io5';
 import s from './CamperList.module.css';
+import Modal from 'components/Modal/Modal';
 
 function CamperList() {
   const adverts = useSelector(selectCampers);
@@ -21,9 +22,19 @@ function CamperList() {
   const vehicleType = useSelector(selectvehicleType);
   const dispatch = useDispatch();
 
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   useEffect(() => {
     dispatch(fetchAdverts({ location, equipmentFilters, vehicleType }));
   }, [dispatch, location, equipmentFilters, vehicleType]);
+
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const closeModal = () => {
+    setIsOpenModal(false);
+  };
 
   return (
     <div className={s.container}>
@@ -90,9 +101,16 @@ function CamperList() {
                   <p className={s.optionDesc}>AC</p>
                 </li>
               </ul>
-              <button type="button" className={s.showMoreBtn}>
+              <button
+                type="button"
+                className={s.showMoreBtn}
+                onClick={openModal}
+              >
                 Show more
               </button>
+              {isOpenModal ? (
+                <Modal onClose={closeModal} advert={advert} />
+              ) : null}
             </div>
           </div>
         ))}
