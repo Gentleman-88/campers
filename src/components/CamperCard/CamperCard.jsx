@@ -53,7 +53,7 @@ function CamperCard({ advert }) {
         localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
       }
     }
-  }, [isFavorite]);
+  }, [isFavorite, id, advert]);
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
